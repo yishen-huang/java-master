@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Comparator;
 
 /**
  * Created by CodeGenerator on 2024/11/18.
@@ -41,6 +43,11 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     @Override
     public String generateToken() {
         return java.util.UUID.randomUUID().toString().replace("-", "");
+    }
+
+    @Override
+    public List<User> fetchSortedUsers() {
+        return userMapper.fetchSortedUsers();
     }
     
     private String encryptPassword(String password) {

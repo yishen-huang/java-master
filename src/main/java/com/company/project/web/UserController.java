@@ -55,11 +55,10 @@ public class UserController {
         return ResultGenerator.genSuccessResult(user);
     }
 
-//    获取列表 001
     @GetMapping("/list")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
-        List<User> list = userService.findAll();
+        List<User> list = userService.fetchSortedUsers();
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }

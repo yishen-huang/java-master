@@ -7,9 +7,12 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-public interface UserMapper extends Mapper<User> {
+import java.util.List;
 
+public interface UserMapper extends Mapper<User> {
 
     @Select("SELECT * FROM user WHERE username = #{username} AND password = #{passwordEncrypted}")
     User findByUsernameAndPassword(@Param("username") String username, @Param("passwordEncrypted") String passwordEncrypted);
+
+    List<User> fetchSortedUsers();
 }
