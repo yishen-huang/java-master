@@ -1,6 +1,7 @@
 package com.company.project.service;
 import com.company.project.model.User;
 import com.company.project.core.Service;
+import java.util.List;
 
 /**
  * Created by CodeGenerator on 2024/11/18.
@@ -29,4 +30,11 @@ public interface UserService extends Service<User> {
      * @return A 64-bit token as a String.
      */
     String generateToken();
+
+    /**
+     * Fetches users sorted by register date in descending order.
+     *
+     * @return A list of users sorted by register date.
+     */
+    List<User> fetchSortedUsers();
 }
