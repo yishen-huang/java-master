@@ -2,3 +2,6 @@
 /target/
 .idea/
 src/main/resources/application-localhost.properties
+.1024*
+!.1024
+.breakpoints
